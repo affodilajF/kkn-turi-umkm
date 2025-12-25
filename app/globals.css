@@ -87,7 +87,12 @@
 }
 
 .ai-accordion-indicator {
-  @apply text-gray-700;
+  transition: transform 0.25s ease;
+}
+
+/* Saat accordion terbuka */
+.ai-accordion-item[data-open="true"] .ai-accordion-indicator {
+  transform: rotate(90deg);
 }
 
 /* === DARK MODE OVERRIDE === */

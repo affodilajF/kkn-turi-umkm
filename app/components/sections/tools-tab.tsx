@@ -199,7 +199,8 @@ export default function AIToolsTabs() {
                     title: "ai-accordion-title",
                     trigger: "ai-accordion-trigger",
                     content: "ai-accordion-content",
-                    indicator: "ai-ac/cordion-indicator",
+                    // indicator: "ai-ac/cordion-indicator",
+                    indicator: "ai-accordion-indicator",
                   }}
                 >
                   {currentTab.contents.map((content, index) => (
