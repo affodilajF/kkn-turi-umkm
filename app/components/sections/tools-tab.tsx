@@ -28,12 +28,12 @@ interface Content {
 }
 
 export default function AIToolsTabs() {
-  const [activeTab, setActiveTab] = useState("sampah");
+  const [activeTab, setActiveTab] = useState("1");
 
   // Tab Data
   const tabs: Tab[] = [
     {
-      id: "formalisasi-umkm",
+      id: "1",
       label: "Materi 1",
       icon: <TextGeneratorIcon className="w-8 h-8" />,
       title: "Materi 1: Pengertian Formalisasi UMKM",
