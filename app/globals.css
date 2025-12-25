@@ -1,26 +1,378 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@plugin "@tailwindcss/typography";
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  input[type="search"]::-webkit-search-cancel-button {
+    display: none;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme inline {
+  --color-primary-50: #eaf4ff; /* sangat lembut, mendekati putih-biru */
+  --color-primary-100: #d0e8ff; /* soft baby blue */
+  --color-primary-200: #a8d4ff; /* bright clinic blue */
+  --color-primary-300: #79bdff; /* biru UI yang ringan */
+  --color-primary-400: #59a8f8; /* glossy-modern */
+  --color-primary-500: #2b8ce7; /* base utama (mirip hero) */
+  --color-primary-600: #1f6fbe; /* untuk hover/CTA yang tegas */
+  --color-primary-700: #15548f; /* lebih gelap, accent headings */
+  --color-primary-800: #0f3b63; /* deep hospital navy */
+  --color-primary-900: #0a233d; /* darkest for contrast */
+
+  --color-success-50: #ecfdf3;
+  --color-success-500: #ecfdf3;
+  --color-success-600: #12b76a;
+
+  --color-error-50: #fef3f2;
+  --color-error-100: #fee4e2;
+  --color-error-500: #f04438;
+  --color-error-600: #d92d20;
+
+  --color-dark-primary: #171f2e;
+  --color-dark-secondary: #1a2231;
+
+  --text-title-lg: 44px;
+  --text-title-lg--line-height: 52px;
+
+  --shadow-theme-xs: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  --shadow-theme-sm: 0px 8px 20px 0px rgba(0, 0, 0, 0.08);
+  --shadow-theme-lg: 0px 12px 16px -4px rgba(16, 24, 40, 0.08),
+    0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+  --shadow-ring: 0px 0px 0px 4px rgba(70, 95, 255, 0.12);
+  --shadow-theme-md: 0px 8px 30px 0px rgba(12, 11, 25, 0.04);
+
+  --background-image-gradient-1: linear-gradient(
+    180deg,
+    #f8fcff 0%,
+    #f1efff 50%,
+    #f8dcff 100%
+  );
+  --background-image-gradient-2: linear-gradient(
+    97deg,
+    var(--color-primary-500) 0%,
+    /* base blue */ var(--color-primary-300) 140.21% /* lighter blue glow */
+  );
+}
+
+/* === BASE ACCORDION WRAPPER === */
+.ai-accordion {
+  @apply w-full flex flex-col gap-4;
+}
+
+/* === DEFAULT (LIGHT MODE) === */
+.ai-accordion-item {
+  @apply bg-white text-gray-800 rounded-2xl shadow-md border border-gray-200
+          transition-all hover:bg-gray-50 hover:border-primary-400/30
+          hover:scale-[1.01];
+}
+
+.ai-accordion-title {
+  @apply font-semibold text-base text-gray-800;
+}
+
+.ai-accordion-trigger {
+  @apply px-6 py-4;
+}
+
+.ai-accordion-content {
+  @apply px-6 pb-6 text-sm text-gray-600;
+}
+
+.ai-accordion-indicator {
+  @apply text-gray-700;
+}
+
+/* === DARK MODE OVERRIDE === */
+[data-theme="dark"] .ai-accordion-item {
+  @apply bg-white/5 text-white border-white/10
+          transition-all hover:bg-white/10 hover:border-primary-400/30
+          hover:scale-[1.01];
+}
+
+[data-theme="dark"] .ai-accordion-title {
+  @apply text-white;
+}
+
+[data-theme="dark"] .ai-accordion-content {
+  @apply text-gray-300;
+}
+
+[data-theme="dark"] .ai-accordion-indicator {
+  @apply text-white;
+}
+
+.button-bg {
+  background-image: linear-gradient(
+    97deg,
+    var(--color-primary-500) 0%,
+    /* base blue */ var(--color-primary-300) 140.21% /* soft glossy blue */
+  );
+  color: white;
+}
+
+/* .tab-img-bg {
+  background: linear-gradient(90deg, rgba(43, 140, 231, 0.5) 100%);
+
+  position: relative;
+  z-index: 20;
+} */
+
+.tab-img-bg {
+  /* background: linear-gradient(
+    90deg,
+    rgba(255, 88, 213, 0.2) 0%,
+    rgba(78, 110, 255, 0.2) 100%
+  ); */
+  background: linear-gradient(
+    90deg,
+    rgba(43, 140, 231, 0.5) 0%,
+    /* Oren cerah (kuning oren) dengan transparansi 
+    */ rgb(9, 55, 99) 100%
+      /* Oren terang (base oren) */
+  );
+
+  position: relative;
+  z-index: 20;
+}
+
+[data-theme="light"] .tab-img-bg::after {
+  border-radius: 32px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 93.51%);
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 10;
+}
+
+[data-theme="dark"] .tab-img-bg::after {
+  background: linear-gradient(180deg, rgba(23, 31, 46, 0) 0%, #171f2e 93.51%);
+}
+
+.tab-img-overlay {
+  border-radius: 26px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.3) 67.58%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  backdrop-filter: blur(18.81816291809082px);
+  position: relative;
+  z-index: 20;
+}
+
+@utility wrapper {
+  @apply container px-5 mx-auto sm:px-7;
+}
+
+.shadow-one {
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+}
+
+.benefits-bg {
+  border-radius: 20px;
+  background: linear-gradient(216deg, #a2e4e4 0%, #1c9ef6 100%);
+}
+
+.gradient-bg-two {
+  background-image: var(
+    --Gradient-2,
+    linear-gradient(
+      97deg,
+      var(--color-primary-700) 0%,
+      /* deep clinic navy */ var(--color-primary-400) 140.21%
+        /* glossy medical blue */
+    )
+  );
+}
+
+@utility hero-glow-bg {
+  background-image: linear-gradient(
+    180deg,
+    rgba(121, 189, 255, 0) 0%,
+    /* primary-300 transparan */ var(--color-primary-300) 100%
+      /* soft medical blue glow */
+  );
+}
+
+.core-feature-wrapper {
+  border-radius: 20px;
+  box-shadow: 0px 30px 50px -32px rgba(107, 110, 148, 0.04);
+}
+
+.core-feature-icon {
+  background-image: linear-gradient(
+    180deg,
+    #171470 0%,
+    rgba(122, 90, 248, 0) 100%
+  );
+  filter: drop-shadow(0px 23px 33px rgba(123, 82, 7, 0.59));
+  width: 76px;
+  height: 76px;
+  align-items: center;
+
+  display: flex;
+  justify-content: center;
+  border-radius: 50px;
+}
+
+.contact-wrapper {
+  border-radius: 24px;
+  box-shadow: 0px 32px 100px -12px rgba(16, 24, 40, 0.05);
+}
+
+.dashboard-gradient {
+  background-image: linear-gradient(
+    92deg,
+    var(--Colors-Brand-500, #ff8c00) 0%,
+    var(--Colors-Brand-200, #ffcc80) 100%
+  );
+}
+
+[data-theme="light"] .widget-bg {
+  background-image: linear-gradient(
+    180deg,
+    #f8fcff 0%,
+    #f1efff 50%,
+    #f8dcff 100%
+  );
+}
+
+[data-theme="dark"] .widget-bg {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@utility custom-scrollbar {
+  &::-webkit-scrollbar {
+    @apply w-4.5;
+  }
+
+  &::-webkit-scrollbar-track {
+    @apply rounded-full;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @apply bg-gray-200 border-[0.35rem] border-transparent bg-clip-padding rounded-full;
+  }
+
+  [data-theme="dark"] &::-webkit-scrollbar-thumb {
+    @apply bg-gray-700;
+  }
+}
+
+.gradient-btn {
+  background-image: linear-gradient(97deg, #ff8c00 0%, #ffa31a 140.21%);
+  color: white;
+  background-size: 200% auto;
+  background-position: 0% center;
+  transition: background-position 0.6s ease-in-out, transform 0.3s ease;
+  will-change: background-position, transform;
+}
+
+.gradient-btn:hover {
+  background-image: linear-gradient(97deg, #ffa31a 0%, #ff8c00 140.21%);
+  background-position: 100% center;
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+.history-item {
+  position: relative;
+  height: 40px;
+  mask-image: linear-gradient(
+    90deg,
+    #000,
+    #000 84%,
+    transparent 89%,
+    transparent
+  );
+}
+
+.history-item:hover {
+  mask-image: none;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Float vertically */
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Float horizontally */
+@keyframes float-x {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+/* Float diagonally */
+@keyframes float-xy {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10px, -10px);
+  }
+}
+
+/* Subtle slow float in reverse */
+@keyframes float-rev {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* Animation classes */
+.floating-1 {
+  animation: float-y 3s ease-in-out infinite;
+}
+
+.floating-2 {
+  animation: float-x 4s ease-in-out infinite;
+}
+
+.floating-3 {
+  animation: float-xy 5s ease-in-out infinite;
+}
+
+.floating-4 {
+  animation: float-rev 6s ease-in-out infinite;
 }
