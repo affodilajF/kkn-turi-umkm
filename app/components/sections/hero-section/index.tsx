@@ -18,9 +18,11 @@ export default function HeroSection() {
               </h1>
 
               <p className="max-w-[480px] dark:text-gray-400 text-gray-500 text-base leading-relaxed">
-                Jelajahi Hukum Islam secara Terstruktur untuk Memahami Prinsip,
-                Meningkatkan Literasi Syariah, dan Membangun Pemahaman yang
-                Relevan dengan Kehidupan Modern.
+                Menyediakan informasi terstruktur mengenai proses legalitas dan
+                pengembangan Usaha Mikro, Kecil, dan Menengah (UMKM) untuk
+                meningkatkan pemahaman pelaku usaha, mendorong kepatuhan hukum,
+                serta mendukung keberlanjutan usaha yang relevan dengan
+                kebutuhan ekonomi modern.
               </p>
 
               <div className="mt-6 flex sm:flex-row flex-col gap-0 items-start justify-start relative z-30">

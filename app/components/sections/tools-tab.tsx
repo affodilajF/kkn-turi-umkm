@@ -33,43 +33,58 @@ export default function AIToolsTabs() {
   // Tab Data
   const tabs: Tab[] = [
     {
-      id: "sampah",
+      id: "formalisasi-umkm",
       label: "Materi 1",
       icon: <TextGeneratorIcon className="w-8 h-8" />,
-      title: "Materi 1: Pengertian Hukum Islam",
-      description: "Materi 1 membahas tentang Pengertian Hukum Islam.",
+      title: "Materi 1: Pengertian Formalisasi UMKM",
+      description:
+        "Materi ini membahas pengertian, tujuan, dan ruang lingkup formalisasi UMKM.",
       contents: [
         {
-          title: "Pengertian Hukum Islam",
+          title: "Pengertian Formalisasi UMKM",
           description: `
-          Hukum Islam adalah seperangkat aturan dan prinsip yang berasal dari ajaran agama Islam yang mengatur berbagai aspek kehidupan umat Muslim, termasuk ibadah, muamalah (interaksi sosial dan ekonomi), serta tata cara berperilaku dalam masyarakat. 
-          Hukum ini bersumber dari Al-Qur'an, Hadis (perkataan dan tindakan Nabi Muhammad SAW), Ijma' (kesepakatan ulama), dan Qiyas (analogi). 
-          Tujuan utama hukum Islam adalah untuk mencapai keadilan, kesejahteraan, dan kebaikan bagi individu dan masyarakat secara keseluruhan.<br><br>
+      Formalisasi UMKM adalah proses pengakuan usaha secara resmi oleh negara melalui pemenuhan aspek legalitas, administrasi, dan perizinan usaha. 
+      Proses ini bertujuan agar usaha yang dijalankan memiliki status hukum yang jelas, terlindungi secara hukum, serta dapat berpartisipasi secara legal dalam kegiatan ekonomi nasional.<br><br>
 
-          <b>1. Aspek Ibadah:</b><br>
-          Aspek ini mencakup segala hal yang berhubungan dengan ibadah kepada Allah, seperti shalat, zakat, puasa, dan haji.<br><br>
+      Formalisasi UMKM mencakup kepemilikan identitas usaha, perizinan, dan pencatatan administratif sesuai dengan ketentuan peraturan perundang-undangan yang berlaku.<br><br>
 
-          <b>2. Aspek Muamalah:</b><br>
-          Ini meliputi interaksi sosial dan ekonomi, termasuk jual beli, pinjaman, sewa menyewa, dan lainnya.<br><br>
+      <b>1. Legalitas Usaha:</b><br>
+      Meliputi kepemilikan Nomor Induk Berusaha (NIB), izin usaha, dan dokumen pendukung lainnya sebagai bukti bahwa usaha telah terdaftar secara resmi.<br><br>
 
-          <b>3. Aspek Akhlak:</b><br>
-          Hukum Islam juga mengatur tentang tata cara berperilaku dalam masyarakat, seperti adab dalam berinteraksi, berbicara, dan bergaul.<br><br>
+      <b>2. Administrasi Usaha:</b><br>
+      Berkaitan dengan pencatatan usaha, seperti data pemilik, alamat usaha, jenis kegiatan usaha, serta pencatatan keuangan dasar.<br><br>
 
-          Hukum Islam bertujuan untuk menciptakan kesejahteraan sosial dengan memelihara hak-hak individu dan masyarakat.
-        `,
+      <b>3. Kepatuhan Regulasi:</b><br>
+      UMKM yang terformalisasi wajib menjalankan usaha sesuai dengan aturan yang berlaku, termasuk ketentuan perpajakan, ketenagakerjaan, dan standar usaha.
+      `,
         },
         {
-          title: "Pengertian Hukum Islam (Lanjutan)",
-          description:
-            "Hukum Islam adalah seperangkat aturan dan prinsip yang berasal dari ajaran agama Islam yang mengatur berbagai aspek kehidupan umat Muslim, termasuk ibadah, muamalah (interaksi sosial dan ekonomi), serta tata cara berperilaku dalam masyarakat. Hukum ini bersumber dari Al-Qur'an, Hadis, Ijma', dan Qiyas serta bertujuan menjaga kemaslahatan umat.",
+          title: "Tujuan Formalisasi UMKM",
+          description: `
+      Formalisasi UMKM bertujuan untuk meningkatkan perlindungan hukum bagi pelaku usaha serta membuka akses yang lebih luas terhadap berbagai fasilitas pendukung usaha.<br><br>
+
+      Beberapa tujuan utama formalisasi UMKM antara lain:<br>
+      - Memberikan kepastian dan perlindungan hukum bagi pelaku usaha.<br>
+      - Mempermudah akses pembiayaan, seperti kredit perbankan dan bantuan pemerintah.<br>
+      - Meningkatkan kepercayaan konsumen dan mitra usaha.<br>
+      - Mendorong UMKM naik kelas dan berdaya saing.
+      `,
         },
         {
-          title: "Pengertian Hukum Islam (Lanjutan)",
-          description:
-            "Hukum Islam adalah seperangkat aturan dan prinsip yang berasal dari ajaran agama Islam yang mengatur berbagai aspek kehidupan umat Muslim, termasuk ibadah, muamalah (interaksi sosial dan ekonomi), serta tata cara berperilaku dalam masyarakat. Hukum ini bersumber dari Al-Qur'an, Hadis, Ijma', dan Qiyas serta bertujuan menjaga kemaslahatan umat.",
+          title: "Manfaat Formalisasi UMKM",
+          description: `
+      Dengan melakukan formalisasi, UMKM memperoleh berbagai manfaat strategis yang mendukung keberlanjutan usaha.<br><br>
+
+      Manfaat formalisasi UMKM meliputi:<br>
+      - Usaha diakui secara hukum dan terlindungi dari risiko sengketa.<br>
+      - Kemudahan dalam mengikuti program pemerintah dan pengadaan barang/jasa.<br>
+      - Akses pasar yang lebih luas, termasuk kerja sama dengan perusahaan besar.<br>
+      - Peningkatan profesionalisme dan tata kelola usaha.
+      `,
         },
       ],
     },
+
     {
       id: "reduce",
       label: "Materi 2",
