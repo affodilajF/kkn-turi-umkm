@@ -136,7 +136,7 @@ export default function AIToolsTabs() {
   const currentTab = tabs.find((tab) => tab.id === activeTab) || tabs[0];
 
   return (
-    <section className="py-14 md:py-28 dark:bg-gray-900">
+    <section className="py-14 md:py-28 dark:bg-gray-900 lg:px-10">
       <div className="wrapper">
         <div className="max-w-2xl mx-auto mb-12 text-center">
           <h4 className="mb-3 font-bold text-gray-800 dark:text-white/90 text-2xl md:text-title-lg">
